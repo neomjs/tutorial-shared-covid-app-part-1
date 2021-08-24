@@ -1,4 +1,6 @@
+import Button    from '../../../node_modules/neo.mjs/src/button/Base.mjs';
 import Container from '../../../node_modules/neo.mjs/src/container/Base.mjs';
+import Label     from '../../../node_modules/neo.mjs/src/component/Label.mjs';
 
 /**
  * @class Covid.view.HeaderContainer
@@ -8,7 +10,7 @@ class HeaderContainer extends Container {
     static getConfig() {return {
         /**
          * @member {String} className='Covid.view.HeaderContainer'
-         * @protected
+         * @private
          */
         className: 'Covid.view.HeaderContainer',
         /**
@@ -29,10 +31,85 @@ class HeaderContainer extends Container {
             style    : {margin: '10px'},
             width    : 267,
 
-            vdom: {
-                tag: 'img',
-                src: 'https://raw.githubusercontent.com/neomjs/pages/master/resources/images/apps/covid/covid_logo_dark.jpg'
-            }
+            vdom: {tag: 'img', src: 'https://raw.githubusercontent.com/neomjs/pages/master/resources/images/apps/covid/covid_logo_dark.jpg'}
+        }, {
+            ntype : 'container',
+            layout: {ntype: 'vbox', align: 'stretch'},
+            items : [{
+                ntype    : 'container',
+                height   : 65,
+                layout   : {ntype: 'hbox'},
+                reference: 'total-stats',
+
+                itemDefaults: {
+                    ntype: 'component'
+                },
+
+                items: [{
+                    cls : ['covid-numberbox'],
+                    vdom: {
+                        cn: [
+                            {cls: ['covid-numberbox-title',  'cases'], html: 'Cases'},
+                            {cls: ['covid-numberbox-number', 'cases']}
+                        ]
+                    }
+                }, {
+                    cls : ['covid-numberbox'],
+                    vdom: {
+                        cn: [
+                            {cls: ['covid-numberbox-title',  'active'], html: 'Active'},
+                            {cls: ['covid-numberbox-number', 'active']}
+                        ]
+                    }
+                }, {
+                    cls : ['covid-numberbox'],
+                    vdom: {
+                        cn: [
+                            {cls: ['covid-numberbox-title',  'recovered'], html: 'Recovered'},
+                            {cls: ['covid-numberbox-number', 'recovered']}
+                        ]
+                    }
+                }, {
+                    cls : ['covid-numberbox'],
+                    vdom: {
+                        cn: [
+                            {cls: ['covid-numberbox-title',  'deaths'], html: 'Deaths'},
+                            {cls: ['covid-numberbox-number', 'deaths']}
+                        ]
+                    }
+                }]
+            }, {
+                ntype : 'container',
+                layout: {ntype: 'hbox'},
+
+                itemDefaults: {
+                    ntype: 'component'
+                },
+
+                items: [{
+                    module : Button,
+                    flex   : 'none',
+                    handler: 'onSwitchThemeButtonClick',
+                    height : 25,
+                    iconCls: 'fa fa-sun',
+                    style  : {marginLeft: '10px', marginTop: '15px'},
+                    text   : 'Theme Light'
+                }, {
+                    module : Button,
+                    flex   : 'none',
+                    handler: 'onReloadDataButtonClick',
+                    height : 25,
+                    iconCls: 'fa fa-sync-alt',
+                    style  : {marginLeft: '10px', marginTop: '15px'},
+                    text   : 'Reload Data'
+                }, {
+                    module   : Label,
+                    height   : 25,
+                    reference: 'last-update',
+                    style    : {marginLeft: '10px', marginTop: '18px'},
+                    text     : 'Last Update:'
+                }]
+            }]
         }]
     }}
 }
