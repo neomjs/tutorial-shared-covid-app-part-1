@@ -1,5 +1,6 @@
-import HeaderContainer from './HeaderContainer.mjs';
-import Viewport        from '../../../node_modules/neo.mjs/src/container/Viewport.mjs';
+import HeaderContainer         from './HeaderContainer.mjs';
+import MainContainerController from './MainContainerController.mjs';
+import Viewport                from '../../../node_modules/neo.mjs/src/container/Viewport.mjs';
 
 /**
  * @class Covid.view.MainContainer
@@ -7,8 +8,9 @@ import Viewport        from '../../../node_modules/neo.mjs/src/container/Viewpor
  */
 class MainContainer extends Viewport {
     static getConfig() {return {
-        className: 'Covid.view.MainContainer',
-        layout   : {ntype: 'vbox', align: 'stretch'},
+        className : 'Covid.view.MainContainer',
+        controller: MainContainerController,
+        layout    : {ntype: 'vbox', align: 'stretch'},
 
         items: [
             {module: HeaderContainer, height: 120},
