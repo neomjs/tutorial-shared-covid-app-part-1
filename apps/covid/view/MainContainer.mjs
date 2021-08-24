@@ -7,8 +7,13 @@ import Viewport from '../../../node_modules/neo.mjs/src/container/Viewport.mjs';
 class MainContainer extends Viewport {
     static getConfig() {return {
         className: 'Covid.view.MainContainer',
-        items    : [],
-        layout   : {ntype: 'fit'}
+        layout   : {ntype: 'vbox', align: 'stretch'},
+
+        items: [
+            {ntype: 'component', style: {backgroundColor: 'black'}},
+            {ntype: 'component', style: {backgroundColor: 'red'}},
+            {ntype: 'component', style: {backgroundColor: 'yellow'}}
+        ]
     }}
 }
 
