@@ -11,7 +11,7 @@ class MainContainer extends Viewport {
         layout   : {ntype: 'vbox', align: 'stretch'},
 
         items: [
-            HeaderContainer,
+            {module: HeaderContainer, height: 120},
             {ntype: 'component', vdom: {innerHTML: 'Center'}},
             {ntype: 'component', vdom: {innerHTML: 'Footer'}}
         ]

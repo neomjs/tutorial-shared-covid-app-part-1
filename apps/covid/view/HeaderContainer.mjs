@@ -16,10 +16,6 @@ class HeaderContainer extends Container {
          */
         cls: ['covid-header-container'],
         /**
-         * @member {Number} height=70
-         */
-        height: 120,
-        /**
          * @member {Object} layout={ntype: 'hbox', align: 'stretch'}
          */
         layout: {ntype: 'hbox', align: 'stretch'},
