@@ -9,10 +9,14 @@ class MainContainer extends Viewport {
         className: 'Covid.view.MainContainer',
         layout   : {ntype: 'vbox', align: 'stretch'},
 
+        itemDefaults: {
+            ntype: 'component'
+        },
+
         items: [
-            {ntype: 'component', style: {backgroundColor: 'black'}},
-            {ntype: 'component', style: {backgroundColor: 'red'}},
-            {ntype: 'component', style: {backgroundColor: 'yellow'}}
+            {vdom: {innerHTML: 'Header'}},
+            {vdom: {innerHTML: 'Center'}},
+            {vdom: {innerHTML: 'Footer'}}
         ]
     }}
 }
